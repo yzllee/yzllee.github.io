@@ -5,9 +5,9 @@
   <subtitle>咸鱼王子</subtitle>
   <link href="/blog/atom.xml" rel="self"/>
   
-  <link href="https://yzllee.github.io/blog/"/>
+  <link href="http://www.lynth.cn/blog/"/>
   <updated>2021-11-24T00:53:46.158Z</updated>
-  <id>https://yzllee.github.io/blog/</id>
+  <id>http://www.lynth.cn/blog/</id>
   
   <author>
     <name>Lyn</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>使用 uniapp 和 vant 的遇到问题记录</title>
-    <link href="https://yzllee.github.io/blog/2021/uniapp.html"/>
-    <id>https://yzllee.github.io/blog/2021/uniapp.html</id>
+    <link href="http://www.lynth.cn/blog/2021/uniapp.html"/>
+    <id>http://www.lynth.cn/blog/2021/uniapp.html</id>
     <published>2021-07-15T06:00:00.000Z</published>
     <updated>2021-11-24T00:53:46.158Z</updated>
     
@@ -32,18 +32,18 @@
     </summary>
     
     
-      <category term="Javascript" scheme="https://yzllee.github.io/blog/tags/Javascript/"/>
+      <category term="Javascript" scheme="http://www.lynth.cn/blog/tags/Javascript/"/>
     
-      <category term="uniapp" scheme="https://yzllee.github.io/blog/tags/uniapp/"/>
+      <category term="uniapp" scheme="http://www.lynth.cn/blog/tags/uniapp/"/>
     
-      <category term="vant" scheme="https://yzllee.github.io/blog/tags/vant/"/>
+      <category term="vant" scheme="http://www.lynth.cn/blog/tags/vant/"/>
     
   </entry>
   
   <entry>
     <title>多途径唤起小程序方案研究</title>
-    <link href="https://yzllee.github.io/blog/2021/open-xcx-by-link.html"/>
-    <id>https://yzllee.github.io/blog/2021/open-xcx-by-link.html</id>
+    <link href="http://www.lynth.cn/blog/2021/open-xcx-by-link.html"/>
+    <id>http://www.lynth.cn/blog/2021/open-xcx-by-link.html</id>
     <published>2021-02-15T06:00:00.000Z</published>
     <updated>2021-11-24T00:59:03.714Z</updated>
     
@@ -62,14 +62,14 @@
     </summary>
     
     
-      <category term="小程序" scheme="https://yzllee.github.io/blog/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+      <category term="小程序" scheme="http://www.lynth.cn/blog/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
   <entry>
     <title>手撸一个简易的webpack</title>
-    <link href="https://yzllee.github.io/blog/2020/simple-webpack.html"/>
-    <id>https://yzllee.github.io/blog/2020/simple-webpack.html</id>
+    <link href="http://www.lynth.cn/blog/2020/simple-webpack.html"/>
+    <id>http://www.lynth.cn/blog/2020/simple-webpack.html</id>
     <published>2020-08-14T07:00:00.000Z</published>
     <updated>2021-11-24T00:58:24.944Z</updated>
     
@@ -82,16 +82,16 @@
     </summary>
     
     
-      <category term="Javascript" scheme="https://yzllee.github.io/blog/tags/Javascript/"/>
+      <category term="Javascript" scheme="http://www.lynth.cn/blog/tags/Javascript/"/>
     
-      <category term="webpack" scheme="https://yzllee.github.io/blog/tags/webpack/"/>
+      <category term="webpack" scheme="http://www.lynth.cn/blog/tags/webpack/"/>
     
   </entry>
   
   <entry>
     <title>多git账号如何在同一台电脑使用</title>
-    <link href="https://yzllee.github.io/blog/2020/multi-git.html"/>
-    <id>https://yzllee.github.io/blog/2020/multi-git.html</id>
+    <link href="http://www.lynth.cn/blog/2020/multi-git.html"/>
+    <id>http://www.lynth.cn/blog/2020/multi-git.html</id>
     <published>2020-05-15T06:01:47.000Z</published>
     <updated>2021-11-24T01:02:01.414Z</updated>
     
@@ -104,14 +104,14 @@
     </summary>
     
     
-      <category term="git" scheme="https://yzllee.github.io/blog/tags/git/"/>
+      <category term="git" scheme="http://www.lynth.cn/blog/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>Javascript EventLoop(浏览器篇)</title>
-    <link href="https://yzllee.github.io/blog/2020/javascript-eventloop.html"/>
-    <id>https://yzllee.github.io/blog/2020/javascript-eventloop.html</id>
+    <link href="http://www.lynth.cn/blog/2020/javascript-eventloop.html"/>
+    <id>http://www.lynth.cn/blog/2020/javascript-eventloop.html</id>
     <published>2020-04-09T16:00:00.000Z</published>
     <updated>2021-11-24T01:04:57.738Z</updated>
     
@@ -124,14 +124,14 @@
     </summary>
     
     
-      <category term="Javascript" scheme="https://yzllee.github.io/blog/tags/Javascript/"/>
+      <category term="Javascript" scheme="http://www.lynth.cn/blog/tags/Javascript/"/>
     
   </entry>
   
   <entry>
     <title>个性化Shell终端折腾</title>
-    <link href="https://yzllee.github.io/blog/2017/custom-shell.html"/>
-    <id>https://yzllee.github.io/blog/2017/custom-shell.html</id>
+    <link href="http://www.lynth.cn/blog/2017/custom-shell.html"/>
+    <id>http://www.lynth.cn/blog/2017/custom-shell.html</id>
     <published>2017-03-04T08:05:32.000Z</published>
     <updated>2021-11-24T01:10:58.795Z</updated>
     
@@ -144,14 +144,14 @@
     </summary>
     
     
-      <category term="Shell" scheme="https://yzllee.github.io/blog/tags/Shell/"/>
+      <category term="Shell" scheme="http://www.lynth.cn/blog/tags/Shell/"/>
     
   </entry>
   
   <entry>
     <title>学习 CSS3 属性 writing-mode</title>
-    <link href="https://yzllee.github.io/blog/2016/writing-mode.html"/>
-    <id>https://yzllee.github.io/blog/2016/writing-mode.html</id>
+    <link href="http://www.lynth.cn/blog/2016/writing-mode.html"/>
+    <id>http://www.lynth.cn/blog/2016/writing-mode.html</id>
     <published>2016-12-13T16:00:00.000Z</published>
     <updated>2021-11-24T01:09:32.846Z</updated>
     
@@ -164,7 +164,7 @@
     </summary>
     
     
-      <category term="CSS3" scheme="https://yzllee.github.io/blog/tags/CSS3/"/>
+      <category term="CSS3" scheme="http://www.lynth.cn/blog/tags/CSS3/"/>
     
   </entry>
   
