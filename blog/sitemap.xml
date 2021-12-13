@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.lynth.cn/blog/2021/uniapp.html</loc>
+    
+    <lastmod>2021-12-13T05:04:03.983Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.lynth.cn/blog/2017/custom-shell.html</loc>
     
     <lastmod>2021-11-24T01:10:58.795Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://www.lynth.cn/blog/2020/simple-webpack.html</loc>
     
     <lastmod>2021-11-24T00:58:24.944Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.lynth.cn/blog/2021/uniapp.html</loc>
-    
-    <lastmod>2021-11-24T00:53:46.158Z</lastmod>
     
   </url>
   
