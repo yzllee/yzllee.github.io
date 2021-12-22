@@ -1,11 +1,42 @@
-<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 多途径唤起小程序方案研究 · lyn's blog</title><meta name="description" content="本文主要介绍了如何在微信外部快速打开微信小程序"><meta name="keywords" content="微信SDK,URL Scheme,Javascript,CSS3,HTML5,vue,react,小程序"><meta name="viewport" content="width=device-width, initial-scale=1"><script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><link rel="icon" href="/blog/favicon.png"><link rel="stylesheet" href="/blog/css/apollo.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div class="wrap"><header><a href="/blog/" class="logo-link"><img src="/blog/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/blog/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/blog/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/yzllee" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/blog/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">多途径唤起小程序方案研究</h1><div class="tags"><a href="/blog/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="tag-title">#小程序</a></div><div class="post-info">2021年2月15日</div><div class="post-content"><h2 id="技术背景"><a href="#技术背景" class="headerlink" title="技术背景"></a>技术背景</h2><p>在运营过程中，希望通过多种渠道引流到小程序，比如：</p>
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 多途径唤起小程序方案研究 · lyn's blog</title><meta name="description" content="本文主要介绍了如何在微信外部快速打开微信小程序"><meta name="keywords" content="微信SDK,URL Scheme,Javascript,CSS3,HTML5,vue,react,小程序"><meta name="viewport" content="width=device-width, initial-scale=1"><script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><link rel="icon" href="/blog/favicon.png"><link rel="stylesheet" href="/blog/css/apollo.css"><style type="text/css">
+.spoiler {
+  display: inline-flex;
+}
+p.spoiler {
+  display: flex;
+}
+.spoiler a {
+  pointer-events: none;
+}
+.spoiler-blur, .spoiler-blur > * {
+  transition: text-shadow .5s ease;
+}
+.spoiler .spoiler-blur, .spoiler .spoiler-blur > * {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  text-shadow: 0 0 10px grey;
+  cursor: pointer;
+}
+.spoiler .spoiler-blur:hover, .spoiler .spoiler-blur:hover > * {
+  text-shadow: 0 0 5px grey;
+}
+.spoiler-box, .spoiler-box > * {
+  transition: color .5s ease,
+  background-color .5s ease;
+}
+.spoiler .spoiler-box, .spoiler .spoiler-box > * {
+  color: black;
+  background-color: black;
+  text-shadow: none;
+}</style><meta name="generator" content="Hexo 5.4.0"></head><body><div class="wrap"><header><a href="/blog/" class="logo-link"><img src="/blog/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/blog/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/blog/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="https://github.com/yzllee" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/blog/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">多途径唤起小程序方案研究</h1><div class="post-tags"><a href="/blog/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="tag-title">#小程序</a></div><div class="post-info">2021年2月15日</div><div class="post-content"><p>了解如何在微信外跳转到微信小程序。</p>
+<span id="more"></span>
+<h2 id="技术背景"><a href="#技术背景" class="headerlink" title="技术背景"></a>技术背景</h2><p>在运营过程中，希望通过多种渠道引流到小程序，比如：</p>
 <ol>
 <li>APP中，点击能够直接打开小程序对应页面</li>
 <li>短信或邮件中，点击链接可以直接打开小程序对应页面</li>
 <li>H5页面中，点击能直接打开小程序对应页面</li>
 </ol>
 <p>本文将从这三点展开研究。</p>
-<span id="more"></span>
 <h2 id="APP唤起小程序"><a href="#APP唤起小程序" class="headerlink" title="APP唤起小程序"></a>APP唤起小程序</h2><p>考虑到部分场景下 APP 需要通过小程序来承载服务，微信<code>JS-SDK</code> 提供了移动应用（APP）拉起小程序功能。移动应用（APP）接入此功能后，用户可以在 APP 中跳转至微信某一小程序的指定页面，<strong>完成服务后再跳回至原 APP</strong> (关于小程序唤起APP功能，这又是另外一个功能点了，我们下篇文章再展开讲)。</p>
 <p>既然微信<code>JS-SDK</code> 提供了此能力，那么只需要<code>APP</code>接入微信的<code>JS-SDK</code>，并且符合官方的跳转规则要求，即可以实现<code>APP</code>打开小程序的功能。这里就不多追溯了，本文主要探讨短信、邮件和H5的场景。</p>
 <h2 id="短信、邮件唤起小程序"><a href="#短信、邮件唤起小程序" class="headerlink" title="短信、邮件唤起小程序"></a>短信、邮件唤起小程序</h2><p>早在2021年之前，大家可能会说这个不可能实现，只有两种替代方案：</p>
@@ -18,7 +49,7 @@
 <p>所以考虑到兼容性问题，我们必须用一个H5页面做承接页来做中转站。</p>
 <h2 id="H5唤起小程序"><a href="#H5唤起小程序" class="headerlink" title="H5唤起小程序"></a>H5唤起小程序</h2><p>通过对短信唤起小程序的研究，我们知道H5只需要作为一个中转站，调用一个重定向方法执行<code>Scheme</code>码就可以跳转到小程序。</p>
 <h2 id="小程序URL-Scheme"><a href="#小程序URL-Scheme" class="headerlink" title="小程序URL Scheme"></a>小程序URL Scheme</h2><p>根据微信官方文档描述，<code>Scheme</code>码必须通过<strong>服务端的接口</strong>获取或者通过小程序管理后台生成，生成的<code>URL Scheme</code>如下所示：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">weixin://dl/business/?t= *TICKET*</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">weixin:<span class="regexp">//</span>dl<span class="regexp">/business/</span>?t= *TICKET*</span><br></pre></td></tr></table></figure>
 <p>利用此<code>Scheme</code>码通过H5做承接页跳转，就可以在<code>Android</code>和<code>IOS</code>平台下，通过短信、邮件、<strong>微信外网页</strong>等场景打开小程序。</p>
 <p>事情往往没有那么简单，可能你也注意到了，<code>URL Scheme</code>只适用于<strong>微信外网页</strong>，那么如果H5页面在微信内被打开了会发生什么呢。经测试，微信内打开如下图所示：</p>
 <p><img src="/blog/images/wxwrong.png" alt="微信内打开错误提示">  </p>
@@ -26,7 +57,7 @@
 <p>通过上面的研究我们可以总结出：要实现微信内和微信外多场景跳转到小程序，我们需<strong>小程序 URL Scheme </strong>和<strong>微信开放标签</strong>。</p>
 <h4 id="获取-URL-Scheme"><a href="#获取-URL-Scheme" class="headerlink" title="获取 URL Scheme"></a>获取 URL Scheme</h4><p>如果想要通过H5网页跳转到小程序的任意页面，肯定是需要通过向服务端传参，然后服务端生成小程序对应页面<code>Scheme</code>码返回给前端，才能适应此场景。如果想要固定跳转首页的话，直接通过小程序管理后台的「工具」生成即可。此场景过于简单，本文不做探讨，下面将介绍服务端如何生成<code>URL Scheme</code>。</p>
 <p>服务端获取<code>URL Scheme</code>需要调用<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/url-scheme/urlscheme.generate.html#%E4%BA%91%E8%B0%83%E7%94%A8">微信的官方API</a>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">POST https://api.weixin.qq.com/wxa/generatescheme?access_token=ACCESS_TOKEN</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">POST https:<span class="regexp">//</span>api.weixin.qq.com<span class="regexp">/wxa/g</span>eneratescheme?access_token=ACCESS_TOKEN</span><br></pre></td></tr></table></figure>
 <p>请求参数说明：</p>
 <table>
 <thead>
@@ -58,7 +89,7 @@
 <p>1.<code>Scheme</code>将根据是否到期参数与失效时间参数，分为<strong>短期有效Scheme</strong>与<strong>长期有效Scheme</strong>。有效时间超过31天的<code>Scheme</code>或永久有效的<code>Scheme</code>被视为<strong>长期有效Scheme</strong>，单个小程序总共可生成长期有效<code>Scheme</code>上限为10万个。有效时间不超过31天的<code>Scheme</code>为<strong>短期有效Scheme</strong>，单个小程序生成短期有效<code>Scheme</code>不设上限。所以我们需要在服务端生成有效期为30天的<code>Scheme</code>就可以无限次生成了。并利用<code>Redis</code>缓存数据，30天过期后再从新生成新的30天有效期的<code>Scheme</code>。</p>
 <p>2.获取<code>Scheme</code>码是需要权限的。参数<code>access_token</code>是获取小程序全局唯一后台接口调用凭据。<strong>调用绝大多数后台接口时都需使用 access_token，开发者需要进行妥善保存。</strong>（在后续的<strong>微信开放标签</strong>中，我们还需要使用它）</p>
 <h4 id="获取-token"><a href="#获取-token" class="headerlink" title="获取 token"></a>获取 token</h4><p>服务端通过微信官方API来获取<code>access_token</code>：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">GET https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid=APPID&amp;secret=APPSECRET</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">GET https:<span class="regexp">//</span>api.weixin.qq.com<span class="regexp">/cgi-bin/</span>token?grant_type=client_credential&amp;appid=APPID&amp;secret=APPSECRET</span><br></pre></td></tr></table></figure>
 <p>重要请求参数说明：</p>
 <table>
 <thead>
@@ -86,7 +117,7 @@
 <li>在项目中引用<code>JS-SDK</code>文件：<code>https://res.wx.qq.com/open/js/jweixin-1.6.0.js</code></li>
 <li>通过wx.config注入权限验证配置并申请所需开放标签，示例代码如下：</li>
 </ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">wx.config(&#123;</span><br><span class="line">  <span class="attr">debug</span>: <span class="literal">true</span>, <span class="comment">// 开启调试模式</span></span><br><span class="line">  <span class="attr">appId</span>: <span class="string">&#x27;&#x27;</span>, <span class="comment">// 必填，服务号的唯一标识</span></span><br><span class="line">  <span class="attr">timestamp</span>: , <span class="comment">// 必填，生成签名的时间戳</span></span><br><span class="line">  nonceStr: <span class="string">&#x27;&#x27;</span>, <span class="comment">// 必填，生成签名的随机串</span></span><br><span class="line">  <span class="attr">signature</span>: <span class="string">&#x27;&#x27;</span>,<span class="comment">// 必填，签名</span></span><br><span class="line">  <span class="attr">jsApiList</span>: [<span class="string">&#x27;checkJsApi&#x27;</span>], <span class="comment">// 必填，需要使用的JS接口列表</span></span><br><span class="line">  <span class="attr">openTagList</span>: [<span class="string">&#x27;wx-open-launch-weapp&#x27;</span>] <span class="comment">// 可选，需要使用的开放标签列表</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">wx.config(&#123;</span><br><span class="line">  <span class="attr">debug</span>: <span class="literal">true</span>, <span class="comment">// 开启调试模式</span></span><br><span class="line">  <span class="attr">appId</span>: <span class="string">&#x27;&#x27;</span>, <span class="comment">// 必填，服务号的唯一标识</span></span><br><span class="line">  <span class="attr">timestamp</span>: , <span class="comment">// 必填，生成签名的时间戳</span></span><br><span class="line">  nonceStr: <span class="string">&#x27;&#x27;</span>, <span class="comment">// 必填，生成签名的随机串</span></span><br><span class="line">  <span class="attr">signature</span>: <span class="string">&#x27;&#x27;</span>,<span class="comment">// 必填，签名</span></span><br><span class="line">  <span class="attr">jsApiList</span>: [<span class="string">&#x27;checkJsApi&#x27;</span>], <span class="comment">// 必填，需要使用的JS接口列表</span></span><br><span class="line">  <span class="attr">openTagList</span>: [<span class="string">&#x27;wx-open-launch-weapp&#x27;</span>] <span class="comment">// 可选，需要使用的开放标签列表</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ol start="4">
 <li>通过<code>wx.ready(() =&gt; function()&#123;&#125;)</code>和<code>wx.error(() =&gt; function(res)&#123;&#125;)</code>来处理验证成功和失败的情景</li>
 </ol>

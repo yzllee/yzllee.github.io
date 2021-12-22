@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.lynth.cn/blog/2021/open-xcx-by-link.html</loc>
+    
+    <lastmod>2021-12-22T02:47:54.182Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.lynth.cn/blog/2021/uniapp.html</loc>
     
-    <lastmod>2021-12-13T05:04:03.983Z</lastmod>
+    <lastmod>2021-12-22T02:46:04.679Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.lynth.cn/blog/2020/simple-webpack.html</loc>
+    
+    <lastmod>2021-12-22T02:45:30.787Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.lynth.cn/blog/2020/javascript-eventloop.html</loc>
+    
+    <lastmod>2021-12-22T02:45:03.100Z</lastmod>
     
   </url>
   
@@ -23,30 +44,9 @@
   </url>
   
   <url>
-    <loc>http://www.lynth.cn/blog/2020/javascript-eventloop.html</loc>
-    
-    <lastmod>2021-11-24T01:04:57.738Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://www.lynth.cn/blog/2020/multi-git.html</loc>
     
     <lastmod>2021-11-24T01:02:01.414Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.lynth.cn/blog/2021/open-xcx-by-link.html</loc>
-    
-    <lastmod>2021-11-24T00:59:03.714Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.lynth.cn/blog/2020/simple-webpack.html</loc>
-    
-    <lastmod>2021-11-24T00:58:24.944Z</lastmod>
     
   </url>
   
