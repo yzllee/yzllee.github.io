@@ -32,7 +32,7 @@
     <script>
       const player = videojs(
         "my-player",
-        { autoplay: "muted" },
+        { autoplay: "any" },
         function onPlayerReady() {
           this.play();
           this.on("ended", function () {
