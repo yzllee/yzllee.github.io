@@ -39,7 +39,7 @@
                        `http://api.yujn.cn/api/rewu.php?type=video$ts=${new Date().getTime()}`,`http://api.yujn.cn/api/tianmei.php?type=video$ts=${new Date().getTime()}`,
                        `http://api.yujn.cn/api/luoli.php?type=video$ts=${new Date().getTime()}`]
       const  videoSource = document.querySelector("video source");
-      videoSource.setAttribute("src", urlList(Math.floor(Math.random() * urlList.length)));
+      videoSource.setAttribute("src", urlList[Math.floor(Math.random() * urlList.length)]);
       const player = videojs(
         "my-player",
         { autoplay: "any" },
