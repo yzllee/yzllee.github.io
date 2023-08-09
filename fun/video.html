@@ -22,12 +22,7 @@
     </style>
   </head>
   <body>
-    <video id="my-player" class="video-js" controls playsinline>
-      <source
-        src=""
-        type="video/mp4"
-      />
-    </video>
+    <video id="my-player" class="video-js" controls playsinline></video>
     <script src="https://cdn.jsdelivr.net/npm/video.js@7.10.2/dist/video.min.js"></script>
     <script>
       const  urlList = [`https://api.qqsuu.cn/api/dm-xjj?type=video&ts=${new Date().getTime()}`, `http://api.yujn.cn/api/xjj.php?type=videots=${new Date().getTime()}`,
@@ -37,8 +32,8 @@
                        `http://api.yujn.cn/api/jpmt.php?type=video&ts=${new Date().getTime()}`,`http://api.yujn.cn/api/qingchun.php?type=video&ts=${new Date().getTime()}`,
                        `http://api.yujn.cn/api/ksbianzhuang.php?type=video&ts=${new Date().getTime()}`,`http://api.yujn.cn/api/jksp.php?type=video&ts=${new Date().getTime()}`,
                        `http://api.yujn.cn/api/rewu.php?type=video&ts=${new Date().getTime()}`,`http://api.yujn.cn/api/tianmei.php?type=video&ts=${new Date().getTime()}`,
-                       `http://api.yujn.cn/api/luoli.php?type=video&ts=${new Date().getTime()}`]
-      const  videoSource = document.querySelector("video source");
+                       `http://api.yujn.cn/api/luoli.php?type=video&ts=${new Date().getTime()}`, `https://v.api.aa1.cn/api/api-girl-11-02/index.php?type=video&ts=${new Date().getTime()}`]
+      const  videoSource = document.querySelector("video");
       videoSource.setAttribute("src", urlList[Math.floor(Math.random() * urlList.length)]);
       const player = videojs(
         "my-player",
