@@ -45,7 +45,7 @@
         { autoplay: "any" },
         function onPlayerReady() {
           this.play();          
-          this.on("ended", function () {
+          this.on("error", function () {
             this.src({
               type: "video/mp4",
               src: urlList(Math.floor(Math.random()*myArray.length))
