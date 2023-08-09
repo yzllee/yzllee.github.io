@@ -32,7 +32,7 @@
     <script>
       const  urlList = [`https://api.qqsuu.cn/api/dm-xjj?type=video&$ts=${new Date().getTime()}`, `http://api.yujn.cn/api/xjj.php?type=video$ts=${new Date().getTime()}`,
                        `http://api.yujn.cn/api/zzxjj.php?type=video$ts=${new Date().getTime()}`]
-      const  src = urlList[location.search.replace("?","")];
+      const  src = urlList[location.search.replace("?","") || 0];
       const player = videojs(
         "my-player",
         { autoplay: "any" },
