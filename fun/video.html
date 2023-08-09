@@ -24,21 +24,28 @@
   <body>
     <video id="my-player" class="video-js" controls playsinline>
       <source
-        src="https://api.qqsuu.cn/api/dm-xjj?type=video"
+        src=""
         type="video/mp4"
       />
     </video>
     <script src="https://cdn.jsdelivr.net/npm/video.js@7.10.2/dist/video.min.js"></script>
     <script>
+      const  urlList = [`https://api.qqsuu.cn/api/dm-xjj?type=video&$ts=${new Date().getTime()}`, `http://api.yujn.cn/api/xjj.php?type=video$ts=${new Date().getTime()}`,
+                       `http://api.yujn.cn/api/zzxjj.php?type=video$ts=${new Date().getTime()}`]
+      const  src = urlList[location.search.replace("?","")];
       const player = videojs(
         "my-player",
         { autoplay: "any" },
         function onPlayerReady() {
+          this.src({
+            type: "video/mp4",
+            src: src
+          });
           this.play();
           this.on("ended", function () {
             this.src({
               type: "video/mp4",
-              src: `https://api.qqsuu.cn/api/dm-xjj?type=video&$ts=${new Date().getTime()}`
+              src: src
             });
           });
         }
