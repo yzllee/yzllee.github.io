@@ -45,25 +45,27 @@
           this.play();
           this.on("waiting", function () {
             const src = urlList[Math.floor(Math.random() * urlList.length)];
-            console.log("waiting src:", src);
+            console.log("waiting");
             timer = setTimeout(() => {
+              console.log("Waiting Timeout! Play next src:", src);
               this.src({src: src + new Date().getTime(), type:"video/mp4"});
             }, 1000 * 10);
           });
           this.on("playing", function () {
-            console.log("playing");
+            console.log("Playing");
             clearTimeout(timer);
             timer = null;
           });           
           this.on("error", function () {
-            const src = urlList[Math.floor(Math.random() * urlList.length)];
-            this.src({src: src + new Date().getTime(), type:"video/mp4"});
             clearTimeout(timer);
             timer = null;
+            const src = urlList[Math.floor(Math.random() * urlList.length)];
+            console.log("Load Error! new src:", src);
+            this.src({src: src + new Date().getTime(), type:"video/mp4"});
           });
           this.on("ended", function () {
             const src = urlList[Math.floor(Math.random() * urlList.length)];
-            console.log("ended");
+            console.log("Ended! Play next src:" src);
             this.src({src: src + new Date().getTime(), type:"video/mp4"});
           });
         }
