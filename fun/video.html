@@ -27,15 +27,14 @@
     </video>
     <script src="https://cdn.jsdelivr.net/npm/video.js@7.10.2/dist/video.min.js"></script>
     <script>
-      // const  urlList = [`https://api.qqsuu.cn/api/dm-xjj?type=video&ts=`, `http://api.yujn.cn/api/xjj.php?type=videots=`,
-      //                  `http://api.yujn.cn/api/zzxjj.php?type=video&ts=`, `http://api.yujn.cn/api/shwd.php?type=video&ts=`,
-      //                  `http://api.yujn.cn/api/wmsc.php?type=video&ts=`,`http://api.yujn.cn/api/hanfu.php?type=video&ts=`,
-      //                  `http://api.yujn.cn/api/diaodai.php?type=video&ts=`,`http://api.yujn.cn/api/manyao.php?type=video&ts=`,
-      //                  `http://api.yujn.cn/api/jpmt.php?type=video&ts=`,`http://api.yujn.cn/api/qingchun.php?type=video&ts=`,
-      //                  `http://api.yujn.cn/api/ksbianzhuang.php?type=video&ts=`,`http://api.yujn.cn/api/jksp.php?type=video&ts=`,
-      //                  `http://api.yujn.cn/api/rewu.php?type=video&ts=`,`http://api.yujn.cn/api/tianmei.php?type=video&ts=`,
-      //                  `http://api.yujn.cn/api/luoli.php?type=video&ts=`, `https://v.api.aa1.cn/api/api-girl-11-02/index.php?type=video&ts=`]
-      const  urlList = [`http://api.yujn.cn/api/jpmt.php?type=video&ts=`, `https://v.api.aa1.cn/api/api-girl-11-02/index.php?type=video&ts=`]
+      const  urlList = [`https://api.qqsuu.cn/api/dm-xjj?type=video&ts=`, `http://api.yujn.cn/api/xjj.php?type=videots=`,
+                       `http://api.yujn.cn/api/zzxjj.php?type=video&ts=`, `http://api.yujn.cn/api/shwd.php?type=video&ts=`,
+                       `http://api.yujn.cn/api/wmsc.php?type=video&ts=`,`http://api.yujn.cn/api/hanfu.php?type=video&ts=`,
+                       `http://api.yujn.cn/api/diaodai.php?type=video&ts=`,`http://api.yujn.cn/api/manyao.php?type=video&ts=`,
+                       `http://api.yujn.cn/api/jpmt.php?type=video&ts=`,`http://api.yujn.cn/api/qingchun.php?type=video&ts=`,
+                       `http://api.yujn.cn/api/ksbianzhuang.php?type=video&ts=`,`http://api.yujn.cn/api/jksp.php?type=video&ts=`,
+                       `http://api.yujn.cn/api/rewu.php?type=video&ts=`,`http://api.yujn.cn/api/tianmei.php?type=video&ts=`,
+                       `http://api.yujn.cn/api/luoli.php?type=video&ts=`, `https://v.api.aa1.cn/api/api-girl-11-02/index.php?type=video&ts=`]
       const  videoSource = document.querySelector("video source");
       videoSource.setAttribute("src", urlList[Math.floor(Math.random() * urlList.length)]);
       let timer = null;
