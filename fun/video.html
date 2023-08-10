@@ -40,7 +40,7 @@
       let timer = null;
       const player = videojs(
         "my-player",
-        { autoplay: "any" },
+        { autoplay: "play" },
         function onPlayerReady() {
           this.play();
           this.on("waiting", function () {
@@ -48,7 +48,7 @@
             console.log("waiting src:", src);
             timer = setTimeout(() => {
               this.src({src: src + new Date().getTime(), type:"video/mp4"});
-            }, 1000 * 5);
+            }, 1000 * 10);
           });
           this.on("playing", function () {
             console.log("playing");
@@ -57,12 +57,14 @@
           });           
           this.on("error", function () {
             const src = urlList[Math.floor(Math.random() * urlList.length)];
-            console.log("error src:", src,type="video/mp4");
+            console.log("error src:", src);
             this.src({src: src + new Date().getTime(),type:"video/mp4"});
+            clearTimeout(timer);
+            timer = null;
           });
           this.on("ended", function () {
             const src = urlList[Math.floor(Math.random() * urlList.length)];
-            console.log("ended, new src:", src,);
+            console.log("ended, new src:", src);
             this.src({src: src + new Date().getTime(),type:"video/mp4"});
           });
         }
