@@ -27,32 +27,44 @@
     </video>
     <script src="https://cdn.jsdelivr.net/npm/video.js@7.10.2/dist/video.min.js"></script>
     <script>
-      const  urlList = [`https://api.qqsuu.cn/api/dm-xjj?type=video&ts=${new Date().getTime()}`, `http://api.yujn.cn/api/xjj.php?type=videots=${new Date().getTime()}`,
-                       `http://api.yujn.cn/api/zzxjj.php?type=video&ts=${new Date().getTime()}`, `http://api.yujn.cn/api/shwd.php?type=video&ts=${new Date().getTime()}`,
-                       `http://api.yujn.cn/api/wmsc.php?type=video&ts=${new Date().getTime()}`,`http://api.yujn.cn/api/hanfu.php?type=video&ts=${new Date().getTime()}`,
-                       `http://api.yujn.cn/api/diaodai.php?type=video&ts=${new Date().getTime()}`,`http://api.yujn.cn/api/manyao.php?type=video&ts=${new Date().getTime()}`,
-                       `http://api.yujn.cn/api/jpmt.php?type=video&ts=${new Date().getTime()}`,`http://api.yujn.cn/api/qingchun.php?type=video&ts=${new Date().getTime()}`,
-                       `http://api.yujn.cn/api/ksbianzhuang.php?type=video&ts=${new Date().getTime()}`,`http://api.yujn.cn/api/jksp.php?type=video&ts=${new Date().getTime()}`,
-                       `http://api.yujn.cn/api/rewu.php?type=video&ts=${new Date().getTime()}`,`http://api.yujn.cn/api/tianmei.php?type=video&ts=${new Date().getTime()}`,
-                       `http://api.yujn.cn/api/luoli.php?type=video&ts=${new Date().getTime()}`, `https://v.api.aa1.cn/api/api-girl-11-02/index.php?type=video&ts=${new Date().getTime()}`]
+      // const  urlList = [`https://api.qqsuu.cn/api/dm-xjj?type=video&ts=`, `http://api.yujn.cn/api/xjj.php?type=videots=`,
+      //                  `http://api.yujn.cn/api/zzxjj.php?type=video&ts=`, `http://api.yujn.cn/api/shwd.php?type=video&ts=`,
+      //                  `http://api.yujn.cn/api/wmsc.php?type=video&ts=`,`http://api.yujn.cn/api/hanfu.php?type=video&ts=`,
+      //                  `http://api.yujn.cn/api/diaodai.php?type=video&ts=`,`http://api.yujn.cn/api/manyao.php?type=video&ts=`,
+      //                  `http://api.yujn.cn/api/jpmt.php?type=video&ts=`,`http://api.yujn.cn/api/qingchun.php?type=video&ts=`,
+      //                  `http://api.yujn.cn/api/ksbianzhuang.php?type=video&ts=`,`http://api.yujn.cn/api/jksp.php?type=video&ts=`,
+      //                  `http://api.yujn.cn/api/rewu.php?type=video&ts=`,`http://api.yujn.cn/api/tianmei.php?type=video&ts=`,
+      //                  `http://api.yujn.cn/api/luoli.php?type=video&ts=`, `https://v.api.aa1.cn/api/api-girl-11-02/index.php?type=video&ts=`]
+      const  urlList = [`http://api.yujn.cn/api/jpmt.php?type=video&ts=`, `https://v.api.aa1.cn/api/api-girl-11-02/index.php?type=video&ts=`]
       const  videoSource = document.querySelector("video source");
       videoSource.setAttribute("src", urlList[Math.floor(Math.random() * urlList.length)]);
+      let timer = null;
       const player = videojs(
         "my-player",
         { autoplay: "any" },
         function onPlayerReady() {
-          this.play();          
+          this.play();
+          this.on("waiting", function () {
+            const src = urlList[Math.floor(Math.random() * urlList.length)];
+            console.log("waiting src:", src);
+            timer = setTimeout(() => {
+              this.src({src: src + new Date().getTime(), type:"video/mp4"});
+            }, 1000 * 5);
+          });
+          this.on("playing", function () {
+            console.log("playing");
+            clearTimeout(timer);
+            timer = null;
+          });           
           this.on("error", function () {
-            this.src({
-              type: "video/mp4",
-              src: urlList[Math.floor(Math.random() * urlList.length)]
-            });
+            const src = urlList[Math.floor(Math.random() * urlList.length)];
+            console.log("error src:", src,type="video/mp4");
+            this.src({src: src + new Date().getTime(),type:"video/mp4"});
           });
           this.on("ended", function () {
-            this.src({
-              type: "video/mp4",
-              src: urlList[Math.floor(Math.random() * urlList.length)]
-            });
+            const src = urlList[Math.floor(Math.random() * urlList.length)];
+            console.log("ended, new src:", src,);
+            this.src({src: src + new Date().getTime(),type:"video/mp4"});
           });
         }
       );
