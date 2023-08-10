@@ -65,7 +65,7 @@
           });
           this.on("ended", function () {
             const src = urlList[Math.floor(Math.random() * urlList.length)];
-            console.log("Ended! Play next src:" src);
+            console.log("Ended! Play next src:", src);
             this.src({src: src + new Date().getTime(), type:"video/mp4"});
           });
         }
