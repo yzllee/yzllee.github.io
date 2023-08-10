@@ -57,15 +57,14 @@
           });           
           this.on("error", function () {
             const src = urlList[Math.floor(Math.random() * urlList.length)];
-            console.log("error src:", src);
-            this.src({src: src + new Date().getTime(),type:"video/mp4"});
+            this.src({src: src + new Date().getTime(), type:"video/mp4"});
             clearTimeout(timer);
             timer = null;
           });
           this.on("ended", function () {
             const src = urlList[Math.floor(Math.random() * urlList.length)];
-            console.log("ended src:", src);
-            this.src({src: src + new Date().getTime(),type:"video/mp4"});
+            console.log("ended");
+            this.src({src: src + new Date().getTime(), type:"video/mp4"});
           });
         }
       );
