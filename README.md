@@ -1,10 +1,10 @@
 # 博客
 
-使用`hexo`生成的静态`blog`。111
+使用`hexo`生成的静态`blog`。
 
-## 主页  
+## 主页
 
-![主页](https://raw.githubusercontent.com/yzllee/yzllee.github.com/master/images/index.png)
+![主页](https://github.com/yzllee/yzllee.github.io/blob/master/images/index.png?raw=true)
 
 ## 参考  
 
