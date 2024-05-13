@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/video.js@7.10.2/dist/video-js.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+      }
+      #my-player {
+        width: 100vw;
+        height: 100vh;
+      }
+      #next {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(0, -50%);
+        cursor: pointer;
+        z-index: 999;
+        color: #fff;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border: #fff solid 1px;
+        border-radius: 50%;
+        opacity: 0.35;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="next">Go</div>
+    <video id="my-player" class="video-js" controls playsinline>
+      <source type="video/mp4"></source>
+    </video>
+    <script src="https://cdn.jsdelivr.net/npm/video.js@7.10.2/dist/video.min.js"></script>
+    <script>
+      const  urlList = [`http://api.yujn.cn/api/xjj.php?type=video&ts=`,
+                        `http://api.yujn.cn/api/juhexjj.php?type=video&ts=`,
+                        `https://api.yujn.cn/api/nvda.php?type=video&ts=`,
+                        `http://api.yujn.cn/api/zzxjj.php?type=video&ts=`,
+                        `https://api.yujn.cn/api/duilian.php?type=video&ts`,
+                        `http://api.yujn.cn/api/wmsc.php?type=video&ts=`,
+                        `http://api.yujn.cn/api/hanfu.php?type=video&ts=`,
+                        `http://api.yujn.cn/api/diaodai.php?type=video&ts=`,
+                        `http://api.yujn.cn/api/manyao.php?type=video&ts=`,
+                        `http://api.yujn.cn/api/baisis.php?type=video&ts=`,
+                        `http://api.yujn.cn/api/heisis.php?type=video`,
+                        `http://api.yujn.cn/api/jpmt.php?type=video&ts=`,
+                        `http://api.yujn.cn/api/qingchun.php?type=video&ts=`,
+                        `http://api.yujn.cn/api/jksp.php?type=video&ts=`,
+                        `http://api.yujn.cn/api/rewu.php?type=video&ts=`,
+                        `http://api.yujn.cn/api/tianmei.php?type=video&ts=`,
+                        `http://api.yujn.cn/api/luoli.php?type=video&ts=`,
+                        `http://api.yujn.cn/api/yuzu.php?type=video&ts=`,
+                        `http://api.yujn.cn/api/bianzhuang.php?type=video&ts=`,
+                        `http://api.yujn.cn/api/ksxjjsp.php?type=video&ts=`,
+                        `https://tucdn.wpon.cn/api-girl/index.php?&ts=`,
+                        `https://api.qqsuu.cn/api/dm-xjj?type=video&apiKey=47173eed744f1b81814150fb9548364e&ts=`,
+                        `https://api.qtkj.love/api/qttj.php?type=video&ts=`
+                       ]
+      const  videoSource = document.querySelector("video source");
+      videoSource.setAttribute("src", urlList[Math.floor(Math.random() * urlList.length)]);
+      let timer = null;
+      const player = videojs(
+        "my-player",
+        { autoplay: "play" },
+        function onPlayerReady() {
+          this.play();
+          this.on("waiting", function () {
+            const src = urlList[Math.floor(Math.random() * urlList.length)];
+            console.log("waiting");
+            timer = setTimeout(() => {
+              console.log("Waiting Timeout! Play next src:", src);
+              this.src({src: src + new Date().getTime(), type:"video/mp4"});
+            }, 1000 * 10);
+          });
+          this.on("playing", function () {
+            console.log("Playing");
+            clearTimeout(timer);
+            timer = null;
+          });           
+          this.on("error", function () {
+            clearTimeout(timer);
+            timer = null;
+            const src = urlList[Math.floor(Math.random() * urlList.length)];
+            console.log("Load Error! new src:", src);
+            this.src({src: src + new Date().getTime(), type:"video/mp4"});
+          });
+          this.on("ended", function () {
+            const src = urlList[Math.floor(Math.random() * urlList.length)];
+            console.log("Ended! Play next src:", src);
+            this.src({src: src + new Date().getTime(), type:"video/mp4"});
+          });
+        }
+      );
+      document.getElementById("next").addEventListener("click", () => {
+        const src = urlList[Math.floor(Math.random() * urlList.length)];
+        console.log("next! Play next src:", src);
+        player.src({src: src + new Date().getTime(), type:"video/mp4"});
+      });
+      window.player = player;
+    </script>
+  </body>
+</html>

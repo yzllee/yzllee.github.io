@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html,
+      body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+      }
+      img {
+        width: 100%;
+      }
+      #next {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        z-index: 999;
+        color: #dd7694;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        border: #dd7694 solid 1px;
+        border-radius: 50%;
+        opacity: 0.8;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="next">Go</div>
+    <img />
+    <script>
+      const imgList = [
+        `https://api.cenguigui.cn/api/taobao2/api.php?ts=`,
+        `http://api.yujn.cn/api/mjx.php?ts=`,
+        `https://api.qtkj.love/api/mjx.php?ts=`
+      ];
+      document.getElementById("next").addEventListener("click", () => {
+        const pre_img = document.querySelector("img");
+        pre_img.src =
+          imgList[Math.floor(Math.random() * imgList.length)] +
+          new Date().getTime();
+      });
+    </script>
+  </body>
+</html>
