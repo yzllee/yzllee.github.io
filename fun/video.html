@@ -76,7 +76,7 @@
           const randomBytes = new Uint32Array(1);
           window.crypto.getRandomValues(randomBytes);
           const randomIndex = randomBytes[0] % arrayLength;
-          return arr[randomIndex];
+          return urlList[randomIndex];
       }
       const  videoSource = document.querySelector("video source");
       videoSource.setAttribute("src", getSrc());
