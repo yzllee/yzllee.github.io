@@ -44,29 +44,32 @@
     </video>
     <script src="https://cdn.jsdelivr.net/npm/video.js@7.10.2/dist/video.min.js"></script>
     <script>
-      const  urlList = [`http://api.yujn.cn/api/xjj.php?type=video&ts=`,
-                        `http://api.yujn.cn/api/juhexjj.php?type=video&ts=`,
-                        `https://api.yujn.cn/api/nvda.php?type=video&ts=`,
-                        `http://api.yujn.cn/api/zzxjj.php?type=video&ts=`,
-                        `https://api.yujn.cn/api/duilian.php?type=video&ts`,
-                        `http://api.yujn.cn/api/wmsc.php?type=video&ts=`,
-                        `http://api.yujn.cn/api/hanfu.php?type=video&ts=`,
-                        `http://api.yujn.cn/api/diaodai.php?type=video&ts=`,
-                        `http://api.yujn.cn/api/manyao.php?type=video&ts=`,
-                        `http://api.yujn.cn/api/baisis.php?type=video&ts=`,
-                        `http://api.yujn.cn/api/heisis.php?type=video`,
-                        `http://api.yujn.cn/api/jpmt.php?type=video&ts=`,
-                        `http://api.yujn.cn/api/qingchun.php?type=video&ts=`,
-                        `http://api.yujn.cn/api/jksp.php?type=video&ts=`,
-                        `http://api.yujn.cn/api/rewu.php?type=video&ts=`,
-                        `http://api.yujn.cn/api/tianmei.php?type=video&ts=`,
-                        `http://api.yujn.cn/api/luoli.php?type=video&ts=`,
-                        `http://api.yujn.cn/api/yuzu.php?type=video&ts=`,
-                        `http://api.yujn.cn/api/bianzhuang.php?type=video&ts=`,
-                        `http://api.yujn.cn/api/ksxjjsp.php?type=video&ts=`,
-                        `https://tucdn.wpon.cn/api-girl/index.php?&ts=`,
-                        `https://api.qqsuu.cn/api/dm-xjj?type=video&apiKey=47173eed744f1b81814150fb9548364e&ts=`,
-                        `https://api.qtkj.love/api/qttj.php?type=video&ts=`
+      const  urlList = ['https://api.yujn.cn/api/zzxjj.php?type=video&ts='，// 站长推荐
+                        `https://api.yujn.cn/api/xjj.php?type=video&ts=`, // 质量
+                        `https://api.yujn.cn/api/juhexjj.php?type=video&ts=`, // 聚合
+                        `https://api.yujn.cn/api/nvda.php?type=video&ts=`, // 女大
+                        `http://api.yujn.cn/api/nvgao.php?type=video&ts`, // 女高
+                        `https://api.yujn.cn/api/duilian.php?type=video&ts`, // 怼脸
+                        `https://api.yujn.cn/api/wmsc.php?type=video&ts=`, // 完美身材
+                        `https://api.yujn.cn/api/hanfu.php?type=video&ts=`, // 汉服
+                        `https://api.yujn.cn/api/diaodai.php?type=video&ts=`, // 吊带
+                        `https://api.yujn.cn/api/manyao.php?type=video&ts=`, // 慢摇
+                        `https://api.yujn.cn/api/shwd.php?type=video&ts`, // 舞蹈
+                        `https://api.yujn.cn/api/baisis.php?type=video&ts=`, // 白
+                        `https://api.yujn.cn/api/heisis.php?type=video&ts`, // 黑
+                        `https://api.yujn.cn/api/jpmt.php?type=video&ts=`, // 腿
+                        `https://api.yujn.cn/api/qingchun.php?type=video&ts=`, // 青春
+                        `https://api.yujn.cn/api/jksp.php?type=video&ts=`, // jk
+                        `https://api.yujn.cn/api/rewu.php?type=video&ts=`, // 热舞
+                        `https://api.yujn.cn/api/tianmei.php?type=video&ts=`, // 甜
+                        `https://api.yujn.cn/api/luoli.php?type=video&ts=`, // loli
+                        `https://api.yujn.cn/api/yuzu.php?type=video&ts=`, // 足
+                        `https://api.yujn.cn/api/bianzhuang.php?type=video&ts=`, // 变装
+                        `https://api.yujn.cn/api/ksxjjsp.php?type=video&ts=`, // 快手
+                        `https://api.yujn.cn/api/manzhan.php?type=video&ts=`, // 漫展
+                        `https://api.yujn.cn/api/COS.php?type=video&ts`, // cos
+                        `https://api.yujn.cn/api/sbkl.php?type=video&ts`, // 双倍快了
+                        `https://tucdn.wpon.cn/api-girl/index.php?&ts=` // 随机
                        ]
       const  videoSource = document.querySelector("video source");
       videoSource.setAttribute("src", urlList[Math.floor(Math.random() * urlList.length)]);
