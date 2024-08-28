@@ -70,9 +70,16 @@
                         `https://api.yujn.cn/api/COS.php?type=video&ts`, // cos
                         `https://api.yujn.cn/api/sbkl.php?type=video&ts`, // 双倍快了
                         `https://tucdn.wpon.cn/api-girl/index.php?&ts=` // 随机
-                       ]
+                       ];
+      function getSrc() {
+          const arrayLength = urlList.length;
+          const randomBytes = new Uint32Array(1);
+          window.crypto.getRandomValues(randomBytes);
+          const randomIndex = randomBytes[0] % arrayLength;
+          return arr[randomIndex];
+      }
       const  videoSource = document.querySelector("video source");
-      videoSource.setAttribute("src", urlList[Math.floor(Math.random() * urlList.length)]);
+      videoSource.setAttribute("src", getSrc());
       let timer = null;
       const player = videojs(
         "my-player",
@@ -80,7 +87,7 @@
         function onPlayerReady() {
           this.play();
           this.on("waiting", function () {
-            const src = urlList[Math.floor(Math.random() * urlList.length)];
+            const src = getSrc();
             console.log("waiting");
             timer = setTimeout(() => {
               console.log("Waiting Timeout! Play next src:", src);
@@ -95,19 +102,19 @@
           this.on("error", function () {
             clearTimeout(timer);
             timer = null;
-            const src = urlList[Math.floor(Math.random() * urlList.length)];
+            const src = getSrc();
             console.log("Load Error! new src:", src);
             this.src({src: src + new Date().getTime(), type:"video/mp4"});
           });
           this.on("ended", function () {
-            const src = urlList[Math.floor(Math.random() * urlList.length)];
+            const src = getSrc();
             console.log("Ended! Play next src:", src);
             this.src({src: src + new Date().getTime(), type:"video/mp4"});
           });
         }
       );
       document.getElementById("next").addEventListener("click", () => {
-        const src = urlList[Math.floor(Math.random() * urlList.length)];
+        const src = getSrc();
         console.log("next! Play next src:", src);
         player.src({src: src + new Date().getTime(), type:"video/mp4"});
       });
