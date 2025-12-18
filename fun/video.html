@@ -27,9 +27,9 @@
         cursor: pointer;
         z-index: 999;
         color: #fff;
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
         text-align: center;
         border: #fff solid 1px;
         border-radius: 50%;
@@ -38,7 +38,7 @@
     </style>
   </head>
   <body>
-    <div id="next">Go</div>
+    <div id="next">G</div>
     <video id="my-player" class="video-js" controls playsinline>
       <source type="video/mp4"></source>
     </video>
@@ -66,11 +66,10 @@
                         `https://api.yujn.cn/api/yuzu.php?type=video&ts=`, // 足
                         // `https://api.yujn.cn/api/bianzhuang.php?type=video&ts=`, // 变装
                         `https://api.yujn.cn/api/ksxjjsp.php?type=video&ts=`, // 快手
-                        `https://api.yujn.cn/api/manzhan.php?type=video&ts=`, // 漫展
-                        `https://api.yujn.cn/api/COS.php?type=video&ts`, // cos
-                        `https://api.yujn.cn/api/sbkl.php?type=video&ts`, // 双倍快了
+                        // `https://api.yujn.cn/api/manzhan.php?type=video&ts=`, // 漫展
+                        // `https://api.yujn.cn/api/COS.php?type=video&ts`, // cos
+                        `https://api.yujn.cn/api/sbkl.php?type=video&ts`, // 随机
                         `https://tucdn.wpon.cn/api-girl/index.php?&ts=`, // 随机
-                        `https://api.pearktrue.cn/api/random/xjj/?type=video&ts=` // 随机
                        ];
       function getSrc() {
           const arrayLength = urlList.length;
